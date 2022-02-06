@@ -1,0 +1,40 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KettleWPF"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="KettleWPF.MainWindow"
+        fw:AcrylicWindow.Enabled="true"
+        fw:AcrylicWindow.AcrylicWindowStyle="None"
+        fw:AcrylicWindow.TintColor="{DynamicResource SystemChromeBlackHighColor}"
+        fw:AcrylicWindow.FallbackColor="{DynamicResource SystemChromeBlackMediumColor}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="350" MaxWidth="350" MaxHeight="150" MinHeight="150" MinWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="235*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="Temp" Content="---°" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="52" Grid.ColumnSpan="3" Foreground="#FFC8C8C8"/>
+        <Button x:Name="btn" Content="Загрузка..." Margin="10,92,10,10" Height="32" Grid.ColumnSpan="3" IsEnabled="False"
+                Style="{StaticResource ButtonRevealStyle}" Click="btnClick"/>
+        <Slider x:Name="TempSlider" Grid.Column="2" HorizontalAlignment="Left" Margin="85,58,0,0" VerticalAlignment="Top" Width="140"
+                Maximum="90"
+                Value="50"
+                Minimum="35"
+                IsSnapToTickEnabled="True"
+                TickPlacement="None" Height="25"
+                IsEnabled="False"
+                />
+        <ComboBox x:Name="ModeSwitcher"  Grid.Column="2" HorizontalAlignment="Left" Margin="33,24,0,0" VerticalAlignment="Top" Width="192" SelectedIndex="0" Height="20" IsEnabled="False">
+            <System:String>Кипячение</System:String>
+            <System:String>Нагрев до температуры</System:String>
+            <System:String>Нагрев и поддержание?</System:String>
+        </ComboBox>
+        <Label x:Name="setTemp" Grid.Column="2" Content="--°" HorizontalAlignment="Left" Margin="33,53,0,0" VerticalAlignment="Top" Height="25" Width="47" Foreground="#FFC8C8C8" FontWeight="Bold"/>
+    </Grid>
+</Window>
